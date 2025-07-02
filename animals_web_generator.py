@@ -15,12 +15,15 @@ def iterate_through_animals(animals_json_load):
     a_location = a_locations[0] if a_locations else None
     a_type = animal.get("characteristics", {}).get("type")
     if a_name and a_diet and a_location and a_type:
+      # append information to each string
+      animal_info += '<li class="cards__item">'
       animal_info += (
-          f"Name: {a_name}\n"
-          f"Diet: {a_diet}\n"
-          f"Location: {a_location}\n"
+          f"Name: {a_name}<br/>\n"
+          f"Diet: {a_diet}<br/>\n"
+          f"Location: {a_location}<br/>\n"
           f"Type: {a_type}\n"
       )
+      animal_info += '</li>'
   return animal_info
       
 
