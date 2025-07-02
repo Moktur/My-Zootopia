@@ -7,7 +7,7 @@ def load_data(file_path):
         return json.load(handle)
 
 
-def iterate_through_animals(animals_json_load):
+def animal_data_to_html(animals_json_load):
     animal_info = ""
     for animal in animals_json_load:
         a_name, a_diet, a_location, a_type = extract_json_data(animal)
@@ -17,7 +17,6 @@ def iterate_through_animals(animals_json_load):
 
 
 def extract_json_data(animal_dict):
-    animal_info = ""
     a_name = animal_dict.get("name")
     a_diet = animal_dict.get("characteristics", {}).get("diet")
     a_locations = animal_dict.get("locations", [])
@@ -46,13 +45,13 @@ def serialize_animal(a_name, a_diet, a_location, a_type):
 def main():
     animals_data = load_data('animals_data.json')
     # print(animals_data)
-    iterate_through_animals(animals_data)
+    animal_data_to_html(animals_data)
     htmlfile = ""
     with open("animals_template.html", "r", encoding="utf-8") as at:
         template = at.read()
         htmlfile = template.replace(
             "__REPLACE_ANIMALS_INFO__",
-            iterate_through_animals(animals_data)
+            animal_data_to_html(animals_data)
         )
     with open("animals_template.html", "w", encoding="utf-8") as at:
         at.write(htmlfile)
