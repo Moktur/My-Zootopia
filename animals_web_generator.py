@@ -18,10 +18,13 @@ def iterate_through_animals(animals_json_load):
       # append information to each string
       animal_info += '<li class="cards__item">'
       animal_info += (
-          f"Name: {a_name}<br/>\n"
-          f"Diet: {a_diet}<br/>\n"
-          f"Location: {a_location}<br/>\n"
-          f"Type: {a_type}\n"
+          f"<div class=\"card__title\">Name: {a_name}</div>\n"
+          f"<p class=\"card__text\">\n"
+          f"<strong>Diet:</strong> {a_diet}<br/>\n"
+          f"<strong>Location:</strong> {a_location}<br/>\n"
+          f"<strong>Type:</strong> {a_type}</br>\n"
+          f"</p>"
+          f"</li>"
       )
       animal_info += '</li>'
   return animal_info
