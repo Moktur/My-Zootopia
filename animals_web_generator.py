@@ -20,10 +20,10 @@ def extract_json_data(animal_dict):
     animal_info = ""
     a_name = animal_dict.get("name")
     a_diet = animal_dict.get("characteristics", {}).get("diet")
-    a_locations = animal_dict.get("locations", [])[0]
+    a_locations = animal_dict.get("locations", [])
     a_location = a_locations[0] if a_locations else None
     a_type = animal_dict.get("characteristics", {}).get("type")
-    return a_name, a_diet, a_locations, a_type
+    return a_name, a_diet, a_location, a_type
 
 
 def serialize_animal(a_name, a_diet, a_location, a_type):
